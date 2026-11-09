@@ -1,8 +1,5 @@
 <?php
-$con = new mysqli("localhost", "root", "root", "studentmsdb");
-if ($con->connect_error) {
-    die("❌ Connection failed: " . $con->connect_error);
-}
+include_once(__DIR__ . '/includes/dbconnection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stu_id = $_POST['stu_id'];

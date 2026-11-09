@@ -7,16 +7,7 @@ if (strlen($_SESSION['sturecmsaid']) == 0) {
     exit();
 }
 
-// Inline MySQL connection
-$host = "localhost";
-$user = "root";
-$pass = "root";
-$db   = "studentmsdb";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("❌ Connection failed: " . $conn->connect_error);
-}
+// Database connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 // Create tables if not exists (add student_regno field)
 $conn->query("CREATE TABLE IF NOT EXISTS items (

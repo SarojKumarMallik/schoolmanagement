@@ -459,14 +459,12 @@ if (isset($_POST['readmit'])) {
                                             <select id="classDropdown" name="newclass" class="form-control" required>
                                                 <option value="">Select Class</option>
                                                 <?php
-                                                $conn1 = new mysqli("localhost", "root", "root", "studentmsdb");
                                                 $sql1 = "SELECT DISTINCT ClassName FROM tblclass ORDER BY ClassName";
-                                                $result1 = $conn1->query($sql1);
+                                                $result1 = $conn->query($sql1);
                                                 while ($row = $result1->fetch_assoc()) {
                                                     $selected = (isset($_POST['newclass']) && $_POST['newclass'] == $row['ClassName']) ? 'selected' : '';
                                                     echo '<option value="' . $row['ClassName'] . '" ' . $selected . '>' . $row['ClassName'] . '</option>';
                                                 }
-                                                $conn1->close();
                                                 ?>
                                             </select>
                                         </div>

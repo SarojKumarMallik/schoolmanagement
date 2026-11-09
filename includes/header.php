@@ -6,6 +6,9 @@
           </a>
           <a class="navbar-brand brand-logo-mini" href="dashboard.php"><img src="images/logo/logo-mini.png" alt="TECHISLAND" style="height: 38px; width: auto;" /></a>
         </div><?php
+if (!isset($dbh)) {
+    include_once(__DIR__ . '/dbconnection.php');
+}
          $aid= $_SESSION['sturecmsaid'];
 $sql="SELECT * from tbladmin where ID=:aid";
 

@@ -1,18 +1,13 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "studentmsdb";
-
 header('Content-Type: application/json');
+include_once(__DIR__ . '/../includes/dbconnection.php');
 
 if (!isset($_POST['class_name']) || empty($_POST['class_name'])) {
     echo json_encode([]);
     exit;
 }
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
+if (!isset($conn) || $conn->connect_error) {
     echo json_encode([]);
     exit;
 }
@@ -35,6 +30,5 @@ if (empty($sections)) {
 }
 
 echo json_encode($sections);
-
 $stmt->close();
-$conn->close();
+?>

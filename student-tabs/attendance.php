@@ -1,4 +1,7 @@
 <?php
+if (!isset($dbh)) {
+    include_once(__DIR__ . '/../includes/dbconnection.php');
+}
 
 if (!empty($stuID)) {
     // Fetch student details (get both StuID and ID)

@@ -7,10 +7,7 @@ if (strlen($_SESSION['sturecmsaid']) == 0) {
     exit();
 }
 
-$conn = new mysqli("localhost", "root", "root", "studentmsdb");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Database connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 $msg = "";
 

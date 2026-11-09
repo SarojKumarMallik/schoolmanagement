@@ -13,12 +13,7 @@ if (!isset($_SESSION['sturecmsaid']) || strlen($_SESSION['sturecmsaid']) == 0) {
     exit();
 }
 
-// ✅ DB connection
-// $conn = new mysqli("sql300.infinityfree.com", "if0_39659266", "wSbf7mjmMiXk7", "if0_39659266_studentmsdb");
-$conn = new mysqli("localhost", "root", "root", "studentmsdb");
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// ✅ DB connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 // ✅ Get all classes for dropdown
 $classResult = $conn->query("SELECT DISTINCT ClassName FROM tblclass ORDER BY ClassName ASC");

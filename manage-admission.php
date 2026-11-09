@@ -8,11 +8,8 @@ if (strlen($_SESSION['sturecmsaid']) == 0) {
     exit();
 }
 
-$con = new mysqli("localhost", "root", "root", "studentmsdb");
+// Database connection ($con, $conn, $dbh) provided by includes/dbconnection.php
 $stuData = $feeData = $monthlyData = null;
-if ($con->connect_error) {
-    die("Connection failed: " . $con->connect_error);
-}
 
 if (isset($_POST['search'])) {
     $stu_id = $_POST['stu_id'];

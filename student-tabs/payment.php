@@ -1,4 +1,7 @@
 <?php
+if (!isset($dbh)) {
+    include_once(__DIR__ . '/../includes/dbconnection.php');
+}
 $stuID = $row->StuID ?? $_GET['stuID'] ?? null;
 
 if ($stuID) {

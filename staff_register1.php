@@ -7,16 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 include('includes/dbconnection.php');
-
-$host = "localhost";
-$user = "root";
-$pass = "root";
-$db   = "studentmsdb";
-
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Database connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 $salaryRecords = [];
 $error = '';

@@ -7,9 +7,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 include('includes/dbconnection.php');
-
-$conn = new mysqli("localhost", "root", "root", "studentmsdb");
-if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
+// Database connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 $message = "";
 $type = "";

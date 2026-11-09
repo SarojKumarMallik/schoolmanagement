@@ -6,19 +6,10 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
   header('location:logout.php');
 }  
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "studentmsdb";
-// $servername = "sql300.infinityfree.com";
-// $username = "if0_39659266";
-// $password = "wSbf7mjmMiXk7";
-// $dbname = "if0_39659266_studentmsdb";
 $feedback = "";
 
 // ✅ Save attendance if form submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['students']) && isset($_POST['save_attendance'])) {
-    $conn = new mysqli($servername, $username, $password, $dbname);
 
     $class_name = $_POST['class_name'];
     $month_year = $_POST['month_year'];
@@ -171,13 +162,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['students']) && isset($
                             <select id="class" name="class_name" required onchange="document.getElementById('attendance-form').submit();">
                                 <option value="">-- Select Class --</option>
                                 <?php
-                                $conn = new mysqli($servername, $username, $password, $dbname);
                                 $sql = "SELECT DISTINCT ClassName FROM tblclass";
                                 $result = $conn->query($sql);
                                 while ($row = $result->fetch_assoc()) {
                                     echo "<option value='" . $row['ClassName'] . "' " . (isset($_POST['class_name']) && $_POST['class_name'] == $row['ClassName'] ? 'selected' : '') . ">" . $row['ClassName'] . "</option>";
                                 }
-                                $conn->close();
                                 ?>
                             </select>
                         </div>
@@ -202,7 +191,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['students']) && isset($
                                 <tbody>
                                     <?php
                                     if (isset($_POST['class_name'])) {
-                                        $conn = new mysqli($servername, $username, $password, $dbname);
                                         $sql = "SELECT id as student_id, StudentName, StudentSection FROM tblstudent WHERE StudentClass = '" . $_POST['class_name'] . "'";
                                         $result = $conn->query($sql);
                                         while ($row = $result->fetch_assoc()) {
@@ -216,7 +204,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['students']) && isset($
                                                 <td><span id="absent_' . $row['student_id'] . '">0</span></td>
                                             </tr>';
                                         }
-                                        $conn->close();
                                     }
                                     ?>
                                 </tbody>

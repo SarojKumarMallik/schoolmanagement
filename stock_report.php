@@ -7,16 +7,7 @@ if (strlen($_SESSION['sturecmsaid']) == 0) {
     exit();
 }
 
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "studentmsdb";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Database connection is provided by includes/dbconnection.php ($conn, $dbh)
 
 // Fetch current stock with last update date/time
 $sql_items = "SELECT i.*, 

@@ -1,4 +1,7 @@
 <?php
+if (!isset($dbh)) {
+    include_once(__DIR__ . '/../includes/dbconnection.php');
+}
 // Make sure $row is available globally if called directly OR fetch again here.
 $stuID = $row->StuID ?? $_GET['stuID'] ?? null;
 

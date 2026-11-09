@@ -11,7 +11,7 @@ if (strlen($_SESSION['sturecmsaid']==0)) {
 include('includes/dbconnection.php');
 
 require('fpdf/fpdf.php'); // make sure FPDF is included
-$con = new mysqli("localhost", "root", "root", "studentmsdb");
+// Database connection ($con, $conn, $dbh) provided by includes/dbconnection.php
 
 $student = null;
 $successMsg = "";
