@@ -1,0 +1,10 @@
+# Archives and large bundles
+*.zip
+vendors/*.zip
+
+# Temporary preview images
+*_preview.png
+
+# OS metadata
+Thumbs.db
+.DS_Store
